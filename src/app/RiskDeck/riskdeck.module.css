@@ -1,0 +1,184 @@
+/* src/app/RiskDeck/riskdeck.module.css */
+
+.page {
+  --bg0: #070a12;
+  --bg1: #0b1220;
+
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel2: rgba(255, 255, 255, 0.085);
+
+  --border: rgba(255, 255, 255, 0.12);
+  --border2: rgba(255, 255, 255, 0.18);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --muted2: rgba(255, 255, 255, 0.55);
+
+  --accent: #f5a524;
+  --accentGlow: rgba(245, 165, 36, 0.18);
+  --shadow: rgba(0, 0, 0, 0.35);
+
+  padding: 120px 0 90px;
+  background:
+    radial-gradient(900px 520px at 18% 12%, rgba(245, 165, 36, 0.22), transparent 60%),
+    radial-gradient(900px 520px at 82% 18%, rgba(124, 58, 237, 0.14), transparent 62%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--text);
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.h1 {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  margin: 0 0 10px;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.card {
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 38px var(--shadow);
+}
+
+.spacer {
+  height: 12px;
+}
+
+/* ===== Scope (CSS Modules safe) ===== */
+.scope * { box-sizing: border-box; }
+
+.scope label {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.scope select,
+.scope input,
+.scope textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border2);
+  background: rgba(0, 0, 0, 0.34);
+  color: var(--text);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.scope select:hover,
+.scope input:hover,
+.scope textarea:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.scope select:focus,
+.scope input:focus,
+.scope textarea:focus {
+  border-color: rgba(245, 165, 36, 0.65);
+  box-shadow: 0 0 0 3px var(--accentGlow);
+}
+
+/* ✅ SELECT: mejorar look del desplegable cerrado */
+.scope select {
+  /* deja el “select” con apariencia controlada */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* espacio para la flecha */
+  padding-right: 40px;
+
+  /* flecha (caret) */
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.65) 50%),
+    linear-gradient(135deg, rgba(255,255,255,0.65) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* ✅ En Chrome/Edge/Firefox normalmente aplica a las opciones */
+.scope select option {
+  background: #0b1220;
+  color: #ffffff;
+}
+
+/* ✅ Si el browser insiste en dropdown claro, al menos el texto será legible */
+.scope select option:checked {
+  background: #111a2f;
+  color: #ffffff;
+}
+
+/* Botones */
+.scope button {
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border2);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 120ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.scope button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.scope button:active {
+  transform: translateY(1px);
+}
+
+.primaryBtn {
+  border-color: rgba(245, 165, 36, 0.55);
+  background: linear-gradient(180deg, rgba(245, 165, 36, 0.26), rgba(245, 165, 36, 0.12));
+}
+
+.primaryBtn:hover {
+  border-color: rgba(245, 165, 36, 0.85);
+  background: linear-gradient(180deg, rgba(245, 165, 36, 0.32), rgba(245, 165, 36, 0.14));
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mini {
+  font-size: 12px;
+  color: var(--muted2);
+  line-height: 1.4;
+}
+
+@media (max-width: 860px) {
+  .fieldRow { grid-template-columns: 1fr; }
+  .h1 { font-size: 28px; }
+}
